@@ -1,57 +1,38 @@
-
-# FauxPilot
-
-This is an attempt to build a locally hosted alternative to [GitHub Copilot](https://copilot.github.com/). It uses the [SalesForce CodeGen](https://github.com/salesforce/CodeGen) models inside of NVIDIA's [Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server) with the [FasterTransformer backend](https://github.com/triton-inference-server/fastertransformer_backend/).
-
-<p align="right">
-  <img width="50%" align="right" src="./img/fauxpilot.png">
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">假飞行员</font></font></h1><a id="user-content-fauxpilot" class="anchor" aria-label="永久链接：FauxPilot" href="#fauxpilot"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这是尝试构建</font></font><a href="https://copilot.github.com/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub Copilot</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的本地托管替代品。</font><font style="vertical-align: inherit;">它使用</font><font style="vertical-align: inherit;">NVIDIA </font><a href="https://developer.nvidia.com/nvidia-triton-inference-server" rel="nofollow"><font style="vertical-align: inherit;">Triton 推理服务器内部的</font></a></font><a href="https://github.com/salesforce/CodeGen"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SalesForce CodeGen</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模型以及</font><a href="https://github.com/triton-inference-server/fastertransformer_backend/"><font style="vertical-align: inherit;">FasterTransformer 后端</font></a><font style="vertical-align: inherit;">。</font></font><a href="https://developer.nvidia.com/nvidia-triton-inference-server" rel="nofollow"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font><a href="https://github.com/triton-inference-server/fastertransformer_backend/"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font></p>
+<p align="right" dir="auto">
+  <a target="_blank" rel="noopener noreferrer" href="/fauxpilot/fauxpilot/blob/main/img/fauxpilot.png"><img width="50%" align="right" src="/fauxpilot/fauxpilot/raw/main/img/fauxpilot.png" style="max-width: 100%;"></a>
 </p>
-
-## Prerequisites
-
-You'll need:
-
-* Docker
-* `docker compose` >= 1.28
-* An NVIDIA GPU with Compute Capability >= 6.0 and enough VRAM to run the model you want.
-* [`nvidia-docker`](https://github.com/NVIDIA/nvidia-docker)
-* `curl` and `zstd` for downloading and unpacking the models.
-
-Note that the VRAM requirements listed by `setup.sh` are *total* -- if you have multiple GPUs, you can split the model across them. So, if you have two NVIDIA RTX 3080 GPUs, you *should* be able to run the 6B model by putting half on each GPU.
-
-
-## Support and Warranty
-
-lmao
-
-Okay, fine, we now have some minimal information on [the wiki](https://github.com/moyix/fauxpilot/wiki) and a [discussion forum](https://github.com/moyix/fauxpilot/discussions) where you can ask questions. Still no formal support or warranty though!
-
-
-
-## Setup
-
-This section describes how to install a Fauxpilot server and clients.
-
-### Setting up a FauxPilot Server
-
-Run the setup script to choose a model to use. This will download the model from [Huggingface/Moyix](https://huggingface.co/Moyix) in GPT-J format and then convert it for use with FasterTransformer.
-
-Please refer to [How to set-up a FauxPilot server](documentation/server.md).
-
-
-### Client configuration for FauxPilot
-
-We offer some ways to connect to FauxPilot Server. For example, you can create a client by how to open the Openai API, Copilot Plugin, REST API.
-
-Please refer to [How to set-up a client](documentation/client.md).
-
-
-## Terminology
- * API: Application Programming Interface
- * CC: Compute Capability
- * CUDA: Compute Unified Device Architecture
- * FT: Faster Transformer
- * JSON: JavaScript Object Notation 
- * gRPC: Remote Procedure call by Google
- * GPT-J: A transformer model trained using Ben Wang's Mesh Transformer JAX 
- * REST: REpresentational State Transfer
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">先决条件</font></font></h2><a id="user-content-prerequisites" class="anchor" aria-label="永久链接：先决条件" href="#prerequisites"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你需要：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">码头工人</font></font></li>
+<li><code>docker compose</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&gt;= 1.28</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">计算能力 &gt;= 6.0 的 NVIDIA GPU 和足够的 VRAM 来运行您想要的模型。</font></font></li>
+<li><a href="https://github.com/NVIDIA/nvidia-docker"><code>nvidia-docker</code></a></li>
+<li><code>curl</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以及</font></font><code>zstd</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载和解压模型。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请注意，列出的 VRAM 要求</font></font><code>setup.sh</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">总计</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 如果您有多个 GPU，则可以将模型拆分到它们之间。</font><font style="vertical-align: inherit;">因此，如果您有两个 NVIDIA RTX 3080 GPU，则</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应该</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">能够通过在每个 GPU 上放置一半来运行 6B 模型。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持和保修</font></font></h2><a id="user-content-support-and-warranty" class="anchor" aria-label="永久链接：支持和保修" href="#support-and-warranty"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">喵喵</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://github.com/moyix/fauxpilot/wiki"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">好吧，好吧，我们现在在wiki</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上有一些最少的信息</font><font style="vertical-align: inherit;">，还有一个</font></font><a href="https://github.com/moyix/fauxpilot/discussions"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">讨论论坛</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，您可以在其中提问。</font><font style="vertical-align: inherit;">但仍然没有正式的支持或保修！</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置</font></font></h2><a id="user-content-setup" class="anchor" aria-label="永久链接：设置" href="#setup"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">本节介绍如何安装 Fauxpilot 服务器和客户端。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置 FauxPilot 服务器</font></font></h3><a id="user-content-setting-up-a-fauxpilot-server" class="anchor" aria-label="永久链接：设置 FauxPilot 服务器" href="#setting-up-a-fauxpilot-server"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行安装脚本以选择要使用的模型。</font></font><a href="https://huggingface.co/Moyix" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这将从Huggingface/Moyix</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载 GPT-J 格式的模型</font><font style="vertical-align: inherit;">，然后将其转换为与 FasterTransformer 一起使用。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅</font></font><a href="/fauxpilot/fauxpilot/blob/main/documentation/server.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何设置 FauxPilot 服务器</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FauxPilot 的客户端配置</font></font></h3><a id="user-content-client-configuration-for-fauxpilot" class="anchor" aria-label="永久链接：FauxPilot 的客户端配置" href="#client-configuration-for-fauxpilot"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们提供一些连接 FauxPilot 服务器的方法。</font><font style="vertical-align: inherit;">例如，您可以通过如何打开Openai API、Copilot Plugin、REST API来创建客户端。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅</font></font><a href="/fauxpilot/fauxpilot/blob/main/documentation/client.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何设置客户端</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">术语</font></font></h2><a id="user-content-terminology" class="anchor" aria-label="永久链接：术语" href="#terminology"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">API：应用程序编程接口</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CC：计算能力</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CUDA：计算统一设备架构</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FT：更快的变压器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JSON：JavaScript 对象表示法</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gRPC：Google 的远程过程调用</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GPT-J：使用 Ben Wang 的 Mesh Transformer JAX 训练的 Transformer 模型</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">REST：代表性状态转移</font></font></li>
+</ul>
+</article></div>
